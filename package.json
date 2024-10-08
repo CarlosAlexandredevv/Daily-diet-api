@@ -1,0 +1,21 @@
+{
+  "name": "daily-diet-api",
+  "version": "1.0.0",
+  "description": "- [] Deve ser possível criar um usuário\r - [] Deve ser possível identificar o usuário entre as requisições\r - [] Deve ser possível registrar uma refeição feita, com as seguintes informações:\r   > _As refeições devem ser relacionadas a um usuário._\r   - Nome\r   - Descrição\r   - Data e Hora\r   - Está dentro ou não da dieta\r - [] Deve ser possível listar todas as refeições de um usuário\r - [] Deve ser possível visualizar uma única refeição\r - [] Deve ser possível editar uma refeição, podendo alterar todos os dados acima\r - [] Deve ser possível apagar uma refeição\r - [] Deve ser possível recuperar as métricas de um usuário\r   - [] Quantidade total de refeições registradas\r   - [] Quantidade total de refeições dentro da dieta\r   - [] Quantidade total de refeições fora da dieta\r   - [] Melhor sequência de refeições dentro da dieta\r - [] O usuário só pode visualizar, editar e apagar as refeições o qual ele criou",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/server.ts",
+    "lint": "eslint src --ext .ts --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "@types/node": "^22.7.5",
+    "eslint": "^8.57.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3"
+  }
+}
