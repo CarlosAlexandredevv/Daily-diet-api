@@ -25,7 +25,7 @@ export async function mealsRoutes(app: FastifyInstance) {
       user_id: userId,
     })
 
-    return reply.status(201).send()
+    return reply.status(201).send({ message: 'Refeição criada com sucesso' })
   })
 
   app.put('/:id', async (request, reply) => {
@@ -56,5 +56,17 @@ export async function mealsRoutes(app: FastifyInstance) {
     return reply
       .status(200)
       .send({ message: 'Refeição atualizada com sucesso' })
+  })
+
+  app.delete('/:id', async (request, reply) => {
+    const { id } = request.params as { id: string }
+
+    const result = await knex('meals').where({ id }).del()
+
+    if (result === 0) {
+      return reply.status(404).send({ message: 'Refeição não encontrada' })
+    }
+
+    return reply.status(200).send({ message: 'Refeição deletada com sucesso' })
   })
 }
