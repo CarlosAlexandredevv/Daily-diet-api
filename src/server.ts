@@ -5,8 +5,13 @@ import { mealsRoutes } from './routes/meals'
 
 const app = fastify()
 
-app.register(usersRoutes)
-app.register(mealsRoutes)
+app.register(usersRoutes, {
+  prefix: '/users',
+})
+
+app.register(mealsRoutes, {
+  prefix: '/meals',
+})
 
 app
   .listen({
