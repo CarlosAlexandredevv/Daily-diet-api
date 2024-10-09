@@ -92,4 +92,27 @@ export async function mealsRoutes(app: FastifyInstance) {
       return reply.status(500).send({ message: 'Erro ao buscar refeições.' })
     }
   })
+
+  app.get('/user/:userId/:id', async (request, reply) => {
+    const paramsSchema = z.object({
+      userId: z.string(),
+      id: z.string(),
+    })
+
+    const { userId, id } = paramsSchema.parse(request.params)
+    try {
+      const meal = await knex('meals')
+        .select('*')
+        .where({ id, user_id: userId })
+
+      if (meal.length === 0) {
+        return reply.status(404).send({ message: 'Refeição não encontrada.' })
+      }
+
+      return reply.status(200).send(meal[0])
+    } catch (error) {
+      console.error(error)
+      return reply.status(500).send({ message: 'Erro ao buscar a refeição.' })
+    }
+  })
 }
