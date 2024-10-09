@@ -7,10 +7,6 @@ export async function usersRoutes(app: FastifyInstance) {
   app.post('/', async (request, reply) => {
     const createUserSchema = z.object({
       name: z.string(),
-      totalMeals: z.number(),
-      totalMealsInDiet: z.number(),
-      totalMealsOutDiet: z.number(),
-      streakMeals: z.number(),
     })
 
     const { name } = createUserSchema.parse(request.body)
@@ -21,6 +17,7 @@ export async function usersRoutes(app: FastifyInstance) {
     })
     return reply.status(201).send()
   })
+
   app.get('/', async () => {
     const users = await knex('users').select('*')
     return users
