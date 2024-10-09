@@ -18,6 +18,12 @@ export async function usersRoutes(app: FastifyInstance) {
     return reply.status(201).send()
   })
 
+  app.get<{ Params: { id: string } }>('/:id', async (request) => {
+    const { id } = request.params
+    const users = await knex('users').select('*').where('id', id)
+    return users
+  })
+
   app.get('/', async () => {
     const users = await knex('users').select('*')
     return users
