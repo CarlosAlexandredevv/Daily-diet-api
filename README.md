@@ -8,6 +8,7 @@ Sejam bem-vindos ao meu projeto desenvolvido como parte do desafio da formação
 
 - **Node.js**: O ambiente de execução para criar a API.
 - **Fastify**: Framework para construção de APIs de alta performance em Node.js.
+- **TypeScript**: Garantindo tipagem estática e mais segurança no código.
 - **Knex**: Query builder para trabalhar com bancos de dados SQL.
 - **SQLite**: Banco de dados leve e fácil de configurar para persistência de dados.
 - **Zod**: Biblioteca de validação de esquemas.
